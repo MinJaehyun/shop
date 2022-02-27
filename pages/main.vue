@@ -1,5 +1,8 @@
 <template>
-  <div>메인 페이지</div>
+  <div>
+    <h1>메인 페이지</h1>
+    <p>메인</p>
+  </div>
 </template>
 
 <script>
