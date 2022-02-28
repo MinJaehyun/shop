@@ -1,16 +1,34 @@
 <template lang="">
-  <div>
-    <div v-for="product in products" :key="product.id">
-      <img :src="product.imageUrl" :alt="product.name" />
-      <p>{{ product.name }}</p>
-      <p>{{ product.price }}</p>
-    </div>
+  <div class="app">
+    <main>
+      <div>
+        <input type="text" />
+      </div>
+      <ul>
+        <li v-for="product in products" :key="product.id" class="item flex">
+          <img
+            :src="product.imageUrl"
+            :alt="product.name"
+            class="product-image"
+            @click="moveToProduct(product.id)"
+          />
+          <p>{{ product.name }}</p>
+          <p>{{ product.price }}</p>
+        </li>
+      </ul>
+      <!-- <ProductList></ProductList> -->
+    </main>
   </div>
 </template>
+
 <script>
 import axios from 'axios'
+// import ProductList from '../components/ProductList.vue'
 
 export default {
+  // components: {
+  //   ProductList,
+  // },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
     const products = response.data.map((item) => {
@@ -22,6 +40,44 @@ export default {
     })
     return { products }
   },
+  methods: {
+    moveToProduct(id) {
+      this.$router.push(`product/${id}`)
+    },
+  },
 }
 </script>
-<style lang=""></style>
+
+<style scoped>
+.app {
+  position: relative;
+}
+.item {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.product-image {
+  width: 400px;
+  height: 250px;
+}
+.cart-wrapper {
+  position: sticky;
+  float: right;
+  bottom: 50px;
+  right: 50px;
+}
+.cart-wrapper .btn {
+  display: inline-block;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+</style>
