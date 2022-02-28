@@ -1,9 +1,7 @@
 <template lang="">
   <div class="app">
     <main>
-      <div>
-        <input type="text" />
-      </div>
+      <Search></Search>
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex">
           <img
@@ -16,19 +14,18 @@
           <p>{{ product.price }}</p>
         </li>
       </ul>
-      <!-- <ProductList></ProductList> -->
     </main>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-// import ProductList from '../components/ProductList.vue'
+// import Search from '@/components/Search.vue'
 
 export default {
-  // components: {
-  //   ProductList,
-  // },
+  components: {
+    // Search,
+  },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
     const products = response.data.map((item) => {
