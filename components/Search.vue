@@ -1,9 +1,20 @@
 <template lang="">
   <div>
-    <input type="text" />
+    <input
+      type="text"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+    />
   </div>
 </template>
 <script>
-export default {}
+export default {
+  props: {
+    value: {
+      type: String,
+      default: () => '',
+    },
+  },
+}
 </script>
 <style lang=""></style>
