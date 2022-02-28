@@ -1,7 +1,9 @@
 <template lang="">
   <div class="app">
     <main>
-      <Search></Search>
+      <!-- :search-keyword="searchKeyword"
+      @input="updateSearchKeyword" -->
+      <Search v-model="searchKeyword"></Search>
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex">
           <img
@@ -20,11 +22,11 @@
 
 <script>
 import axios from 'axios'
-// import Search from '@/components/Search.vue'
+import Search from '@/components/Search.vue'
 
 export default {
   components: {
-    // Search,
+    Search,
   },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
@@ -37,9 +39,17 @@ export default {
     })
     return { products }
   },
+  data() {
+    return {
+      searchKeyword: '',
+    }
+  },
   methods: {
     moveToProduct(id) {
       this.$router.push(`product/${id}`)
+    },
+    updateSearchKeyword(keyword) {
+      this.searchKeyword = keyword
     },
   },
 }
