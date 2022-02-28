@@ -1,9 +1,15 @@
 <template>
   <div>
-    <p>index</p>
+    <ProductList></ProductList>
   </div>
 </template>
 
 <script>
-export default {}
+import ProductList from '../components/ProductList.vue'
+
+export default {
+  components: { ProductList },
+}
 </script>
+
+<style></style>
