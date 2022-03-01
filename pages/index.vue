@@ -1,10 +1,9 @@
 <template lang="">
   <div class="app">
     <main>
-      <!-- <Search v-model="searchKeyword"></Search> -->
-      <!-- <Search :search-keyword="searchKeyword" @input="updateSearchKeyword">
-      </Search> -->
-      <Search :search-keyword="searchKeyword" @search="searchProducts"></Search>
+      <Search v-model="searchKeyword" @search="searchProducts"></Search>
+      <!-- <Search :search-keyword="searchKeyword" @input="updateSearchKeyword"></Search> -->
+      <!-- <Search :search-keyword="searchKeyword" @search="searchProducts"></Search> -->
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex">
           <img
