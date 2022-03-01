@@ -51,7 +51,12 @@ export default {
     },
     async searchProducts() {
       const response = await fetchProductsByKeyword(this.searchKeyword)
-      console.log('response: ', response.data)
+      // console.log('product: ', product)  // 3개의 객체이므로, 각각의 객체 뽑아내고, 이미지 가져온다
+      this.products = response.data.map((item) => ({
+        ...item,
+        imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+      }))
+      // return { product }
     },
     // updateSearchKeyword(keyword) {
     //   this.searchKeyword = keyword
