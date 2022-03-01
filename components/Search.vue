@@ -2,7 +2,7 @@
   <div>
     <input
       type="text"
-      :value="searchKeyword"
+      :value="value"
       @input="$emit('input', $event.target.value)"
     />
     <button type="button" @click="$emit('search')">search</button>
@@ -11,7 +11,7 @@
 <script>
 export default {
   props: {
-    searchKeyword: {
+    value: {
       type: String,
       default: () => '',
     },
