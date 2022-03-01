@@ -1,7 +1,7 @@
 <template lang="">
   <div>
-    <header>
-      <NuxtLink to="/">home page</NuxtLink>
+    <header class="title">
+      <NuxtLink to="/" class="logo">home page</NuxtLink>
     </header>
     <Nuxt />
   </div>
@@ -9,4 +9,18 @@
 <script>
 export default {}
 </script>
-<style lang=""></style>
+
+<style scoped>
+header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+.logo {
+  font-weight: 900;
+}
+.logo:visited {
+  color: inherit;
+}
+</style>
