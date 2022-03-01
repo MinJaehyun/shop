@@ -1,9 +1,10 @@
 <template lang="">
   <div class="app">
     <main>
-      <!-- :search-keyword="searchKeyword"
-      @input="updateSearchKeyword" -->
-      <Search v-model="searchKeyword"></Search>
+      <!-- <Search v-model="searchKeyword"></Search> -->
+      <!-- <Search :search-keyword="searchKeyword" @input="updateSearchKeyword">
+      </Search> -->
+      <Search :search-keyword="searchKeyword" @search="searchProducts"></Search>
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex">
           <img
@@ -23,6 +24,7 @@
 <script>
 import axios from 'axios'
 import Search from '@/components/Search.vue'
+import { fetchProductsByKeyword } from '@/api/index'
 
 export default {
   components: {
@@ -48,9 +50,13 @@ export default {
     moveToProduct(id) {
       this.$router.push(`product/${id}`)
     },
-    updateSearchKeyword(keyword) {
-      this.searchKeyword = keyword
+    async searchProducts() {
+      const response = await fetchProductsByKeyword(this.searchKeyword)
+      console.log('response: ', response.data)
     },
+    // updateSearchKeyword(keyword) {
+    //   this.searchKeyword = keyword
+    // },
   },
 }
 </script>
@@ -58,6 +64,10 @@ export default {
 <style scoped>
 .app {
   position: relative;
+}
+.flex {
+  display: flex;
+  justify-content: center;
 }
 .item {
   display: inline-block;
@@ -67,15 +77,11 @@ export default {
   margin: 0 0.5rem;
   cursor: pointer;
 }
-.flex {
-  display: flex;
-  justify-content: center;
-}
 .product-image {
   width: 400px;
   height: 250px;
 }
-.cart-wrapper {
+/* .cart-wrapper {
   position: sticky;
   float: right;
   bottom: 50px;
@@ -86,5 +92,5 @@ export default {
   height: 40px;
   font-size: 1rem;
   font-weight: 500;
-}
+} */
 </style>
