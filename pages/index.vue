@@ -16,6 +16,9 @@
           <p>{{ product.price }}</p>
         </li>
       </ul>
+      <button class="cart-wrapper btn" type="button">
+        <NuxtLink to="/cart">moveToCart</NuxtLink>
+      </button>
     </main>
   </div>
 </template>
@@ -85,7 +88,7 @@ export default {
   width: 400px;
   height: 250px;
 }
-/* .cart-wrapper {
+.cart-wrapper {
   position: sticky;
   float: right;
   bottom: 50px;
@@ -96,5 +99,5 @@ export default {
   height: 40px;
   font-size: 1rem;
   font-weight: 500;
-} */
+}
 </style>
