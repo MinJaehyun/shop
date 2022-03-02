@@ -6,7 +6,7 @@
     <div class="side-panel">
       <p class="name">name: {{ product.name }}</p>
       <p class="price">price: {{ product.price }}</p>
-      <button type="button">addToCart</button>
+      <button type="button" @click="moveToCart">addToCart</button>
     </div>
   </div>
 </template>
@@ -19,6 +19,12 @@ export default {
     const response = await fetchProductById(params.id)
     const product = response.data
     return { product }
+  },
+  methods: {
+    moveToCart() {
+      this.$store.commit('addCartItem', this.product)
+      this.$router.push('/cart')
+    },
   },
 }
 </script>
