@@ -21,7 +21,11 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  async asyncData({ store }) {
+    await store.dispatch('FETCH_CART_ITEMS')
+  },
+}
 </script>
 
 <style scoped>
