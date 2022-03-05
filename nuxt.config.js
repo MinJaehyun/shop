@@ -40,8 +40,20 @@ export default {
   build: {
   },
 
-  // server setup
+  // server setup - 고정 포트 설정
+  // server: {
+  //   port: 5000,
+  // },
+
+  // production, develop mode 분리하여 설정
   server: {
-    port: 5000,
+    port: process.env.NODE_ENV === 'production' ? null : 5000,
   },
+
+  // env config
+  env: {
+    baseURL: process.env.NODE_ENV === 'production'
+      ? 'https://my-json-server.typicode.com/minjaehyun/shop-api'
+      : 'http://localhost:3000'
+  }
 }
