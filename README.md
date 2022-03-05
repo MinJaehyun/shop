@@ -2,6 +2,7 @@
     1. 상품 전체 조회 페이지 
     2. 상품 상세 페이지
     3. 카트에 담긴 상품 페이지
+    4. 검색
 
 ### Deploy URL
     1. SSR: https://shop-mjh.herokuapp.com/

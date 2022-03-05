@@ -7,3 +7,6 @@
 
     카트에 담긴 상품 목록 페이지
 ![image](https://user-images.githubusercontent.com/43669992/156859877-ed4d8ff8-7ee0-4543-8929-18b822dec2fc.png)
+
+    검색한 상품 목록 
+![image](https://user-images.githubusercontent.com/43669992/156860466-b481ca17-2292-438b-b897-cdcfc348d0c6.png)
